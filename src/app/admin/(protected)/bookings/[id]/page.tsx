@@ -8,12 +8,25 @@ import { serviceDetailRows } from "@/lib/services";
 import type { Booking, StatusChange } from "@/lib/types";
 import { ContactActions, StatusControl } from "./BookingActions";
 
-function mailtoFor(b: Booking): string {
+function emailDraft(b: Booking) {
   const subject = `Your ${BUSINESS.name} ${b.service_package} request: ${b.event_type} on ${formatDate(b.event_date)}`;
   const body =
     `Hi ${firstName(b.full_name)},\n\n` +
     `Thank you for your booking request for a ${b.event_type} (${b.service_package}) on ${formatDate(b.event_date)}.\n\n` +
     `\n\nBest regards,\n${BUSINESS.name}`;
+  return { subject, body };
+}
+
+/** Opens a compose window in Gmail (web), already addressed and filled in. */
+function gmailFor(b: Booking): string {
+  const { subject, body } = emailDraft(b);
+  const q = (v: string) => encodeURIComponent(v); // %20 for spaces; Gmail doesn't always decode "+"
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${q(b.email)}&su=${q(subject)}&body=${q(body)}`;
+}
+
+/** Opens the computer's default email app (e.g. Outlook). */
+function mailtoFor(b: Booking): string {
+  const { subject, body } = emailDraft(b);
   return `mailto:${b.email.replace(/[?&#%]/g, encodeURIComponent)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
@@ -68,7 +81,7 @@ export default async function BookingDetailPage({ params }: { params: Promise<{ 
           <Panel title="Contact">
             <div className="p-5">
               <Details rows={[["Email", b.email], ["Submitted", formatStamp(b.created_at)]]} />
-              <ContactActions id={b.id} email={b.email} mailto={mailtoFor(b)} status={b.status} />
+              <ContactActions id={b.id} email={b.email} gmail={gmailFor(b)} mailto={mailtoFor(b)} status={b.status} />
             </div>
           </Panel>
 

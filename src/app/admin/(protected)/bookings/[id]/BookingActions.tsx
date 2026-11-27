@@ -53,16 +53,34 @@ export function StatusControl({ id, status }: { id: string; status: BookingStatu
   );
 }
 
-export function ContactActions({ id, email, mailto, status }: { id: string; email: string; mailto: string; status: BookingStatus }) {
+export function ContactActions({
+  id,
+  email,
+  gmail,
+  mailto,
+  status,
+}: {
+  id: string;
+  email: string;
+  gmail: string;
+  mailto: string;
+  status: BookingStatus;
+}) {
   const [emailed, setEmailed] = useState(false);
   const [copied, setCopied] = useState(false);
   const { pending, setStatus } = useSetStatus(id);
 
   return (
     <>
-      <div className="mt-4 flex flex-wrap gap-2.5">
-        <a href={mailto} className="btn-gold rounded-md text-xs tracking-[0.12em] uppercase" onClick={() => setEmailed(true)}>
-          ✉ Email client
+      <div className="mt-4 flex flex-wrap items-center gap-2.5">
+        <a
+          href={gmail}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-gold rounded-md text-xs tracking-[0.12em] uppercase"
+          onClick={() => setEmailed(true)}
+        >
+          ✉ Email client in Gmail
         </a>
         <button
           type="button"
@@ -77,6 +95,9 @@ export function ContactActions({ id, email, mailto, status }: { id: string; emai
         >
           {copied ? "Copied ✓" : "Copy email"}
         </button>
+        <a href={mailto} className="text-[12.5px] text-muted underline-offset-2 hover:text-gold hover:underline" onClick={() => setEmailed(true)}>
+          Other email app
+        </a>
       </div>
       {emailed && status === "Pending" && (
         <p className="mt-3 flex flex-wrap items-center gap-2 text-[13px] text-muted">
