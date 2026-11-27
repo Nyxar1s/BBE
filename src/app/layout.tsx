@@ -24,7 +24,8 @@ export const metadata: Metadata = {
 };
 
 // Applies the saved theme before first paint so there's no flash.
-const themeScript = `try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light")}catch(e){}`;
+// Also arms the scroll-reveal animation before first paint (with a fallback that shows everything if scripts never load).
+const themeScript = `try{var d=document.documentElement,t=localStorage.getItem("theme");d.setAttribute("data-theme",t==="dark"?"dark":"light")}catch(e){}try{document.documentElement.setAttribute("data-reveal-ready","");setTimeout(function(){if(!window.__revealReady)document.documentElement.removeAttribute("data-reveal-ready")},4000)}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

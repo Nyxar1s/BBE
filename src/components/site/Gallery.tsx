@@ -14,7 +14,7 @@ export function Gallery({ photos }: { photos: Photo[] }) {
     <>
       <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
         {photos.slice(0, visible).map((p, i) => (
-          <figure key={`${p.image_url}-${i}`} className="group">
+          <figure key={`${p.image_url}-${i}`} data-reveal style={{ "--reveal-delay": `${(i % 3) * 110}ms` } as React.CSSProperties} className="group">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-line">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

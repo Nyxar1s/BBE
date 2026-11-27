@@ -13,10 +13,12 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Gallery } from "@/components/site/Gallery";
+import { ScrollReveal } from "@/components/site/ScrollReveal";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteNav } from "@/components/site/SiteNav";
 import { HERO_IMAGE, HIGHLIGHTS, PROCESS_STEPS, SAMPLE_PHOTOS, SERVICES } from "@/lib/content";
 import { isSupabaseConfigured } from "@/lib/env";
+import { revealDelay } from "@/lib/reveal";
 import { bookingHref } from "@/lib/services";
 import { createPublicClient } from "@/lib/supabase/server";
 
@@ -48,7 +50,7 @@ const darkBtn =
 
 function SectionTitle({ eyebrow, title, text }: { eyebrow?: string; title: string; text?: string }) {
   return (
-    <div className="mx-auto mb-10 max-w-[640px] text-center">
+    <div data-reveal className="mx-auto mb-10 max-w-[640px] text-center">
       {eyebrow && <span className="text-[12px] font-bold tracking-[0.2em] text-gold uppercase">{eyebrow}</span>}
       <h2 className="mt-2 font-sans text-[30px] leading-tight font-extrabold tracking-tight sm:text-[36px]">{title}</h2>
       {text && <p className="mt-3 text-[15.5px] text-muted">{text}</p>}
@@ -61,6 +63,7 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-bg text-fg">
+      <ScrollReveal />
       <SiteNav />
 
       <main>
@@ -90,7 +93,7 @@ export default async function HomePage() {
           </div>
 
           <div className="relative z-10 mx-auto -mt-16 max-w-[1100px] px-4 sm:px-6">
-            <ul className="grid grid-cols-2 gap-y-5 rounded-2xl border border-line bg-surface px-3 py-5 shadow-[0_12px_40px_rgba(20,18,13,.09)] lg:grid-cols-4">
+            <ul data-reveal className="grid grid-cols-2 gap-y-5 rounded-2xl border border-line bg-surface px-3 py-5 shadow-[0_12px_40px_rgba(20,18,13,.09)] lg:grid-cols-4">
               {HIGHLIGHTS.map((h) => {
                 const Icon = HIGHLIGHT_ICONS[h.icon];
                 return (
@@ -116,7 +119,7 @@ export default async function HomePage() {
             {PROCESS_STEPS.map((s, i) => {
               const Icon = STEP_ICONS[i];
               return (
-                <li key={s.title} className="lux-card p-6">
+                <li key={s.title} data-reveal style={revealDelay(i)} className="lux-card p-6">
                   <div className="flex items-center justify-between">
                     <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/12 text-gold ring-1 ring-gold/40">
                       <Icon className="h-5 w-5" strokeWidth={1.7} />
@@ -136,8 +139,8 @@ export default async function HomePage() {
           <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
             <SectionTitle eyebrow="What We Offer" title="Choose Your Service" text="Two ways to work with us. Pick one to start your booking." />
             <div className="grid gap-8 md:grid-cols-2">
-              {SERVICES.map((s) => (
-                <article key={s.name} className="lux-card flex flex-col overflow-hidden">
+              {SERVICES.map((s, i) => (
+                <article key={s.name} data-reveal style={revealDelay(i, 2)} className="lux-card flex flex-col overflow-hidden">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={s.image} alt={`${s.name} event`} loading="lazy" className="h-full w-full object-cover" />
