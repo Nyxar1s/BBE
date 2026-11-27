@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: "BBE | Events That Tugs at Hearts.",
   description:
-    "BBE Events plans weddings, debuts, birthdays and corporate events in Cagayan de Oro. Browse our work and send a booking request.",
+    "BBE plans weddings, debuts, birthdays and corporate events in Cagayan de Oro. Browse our work and send a booking request.",
   openGraph: {
     title: "BBE | Events That Tugs at Hearts.",
     description: "Your dream event, beautifully planned.",

@@ -21,7 +21,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
         <div className="mb-6 flex flex-col items-center gap-3 text-center">
           <Image src="/logo.png" alt="" width={56} height={56} className="rounded-lg border border-gold/50 shadow-[0_0_24px_rgba(212,175,55,.25)]" />
           <div>
-            <p className="font-script text-[34px] leading-none text-gold">BBE Events</p>
+            <p className="font-script text-[34px] leading-none text-gold">BBE</p>
             <small className="text-[10px] tracking-[0.3em] text-muted uppercase">Admin Dashboard</small>
           </div>
         </div>

@@ -23,7 +23,7 @@ export function SiteNav() {
         <Link href="/" className="flex items-center gap-2.5">
           <Image src="/logo.png" alt="BBE logo" width={36} height={36} className="h-9 w-9 rounded-lg object-cover" priority />
           <span className="text-[19px] font-extrabold tracking-tight text-fg">
-            BBE <span className="text-gold">Events</span>
+            BBE
           </span>
         </Link>
 

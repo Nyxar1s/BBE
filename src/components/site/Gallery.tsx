@@ -28,7 +28,7 @@ export function Gallery({ photos }: { photos: Photo[] }) {
             <figcaption className="mt-3.5 flex items-start justify-between gap-3">
               <div className="min-w-0">
                 <div className="truncate text-[17px] font-bold tracking-tight">{p.caption}</div>
-                <div className="truncate text-[13px] text-muted">{p.description || "By BBE Events"}</div>
+                <div className="truncate text-[13px] text-muted">{p.description || "By BBE"}</div>
               </div>
               <span className="shrink-0 rounded-full border border-gold/50 px-2.5 py-0.5 text-[11px] font-semibold text-gold-strong">
                 BBE

@@ -64,7 +64,7 @@ export async function sendNewBookingEmails(b: NewBooking): Promise<void> {
   if (!apiKey) return;
 
   const resend = new Resend(apiKey);
-  const from = process.env.EMAIL_FROM || "BBE Events <onboarding@resend.dev>";
+  const from = process.env.EMAIL_FROM || "BBE <onboarding@resend.dev>";
   const owner = process.env.OWNER_EMAIL || BUSINESS.email;
   const notes = b.details
     ? `<p style="margin:0 0 6px;color:#6b6154;font-size:13px">Additional details</p><div style="background:#faf6ea;border-radius:8px;padding:12px 14px;white-space:pre-wrap;font-size:14px">${esc(b.details)}</div>`

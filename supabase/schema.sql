@@ -1,5 +1,5 @@
 -- =====================================================================
--- BBE Events — Supabase database setup
+-- BBE (Bless Bridal Events) — Supabase database setup
 -- Run this whole file once in: Supabase Dashboard → SQL Editor → New query
 -- It is safe to re-run (objects are created "if not exists" / replaced).
 -- =====================================================================

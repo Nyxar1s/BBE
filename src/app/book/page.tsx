@@ -7,8 +7,8 @@ import { SCHEDULING_URL } from "@/lib/env";
 import { serviceFromSlug } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "Book Your Event | BBE Events",
-  description: "Send a Full Service or Half Service booking request to BBE Events. No account needed.",
+  title: "Book Your Event | BBE",
+  description: "Send a Full Service or Half Service booking request to BBE. No account needed.",
 };
 
 export default async function BookPage({ searchParams }: { searchParams: Promise<{ service?: string }> }) {

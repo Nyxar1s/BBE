@@ -59,7 +59,7 @@ function Shell({ email, pendingCount, children }: { email: string; pendingCount:
         <div className="relative mb-2 flex items-center gap-2.5 px-2">
           <Image src="/logo.png" alt="" width={40} height={40} className="rounded-md border border-gold/40" />
           <div>
-            <b className="gold-text block font-serif text-[20px] leading-tight">BBE Events</b>
+            <b className="gold-text block font-serif text-[20px] leading-tight">BBE</b>
             <small className="text-[10px] tracking-[0.2em] text-muted uppercase">Admin Dashboard</small>
           </div>
         </div>

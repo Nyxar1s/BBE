@@ -11,7 +11,7 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3
 export const SCHEDULING_URL = process.env.NEXT_PUBLIC_SCHEDULING_URL || "";
 
 export const BUSINESS = {
-  name: "BBE Events",
+  name: "BBE",
   email: "hello@bbeevents.com",
   phone: "+63 900 000 0000",
   location: "Cagayan de Oro City, Philippines",

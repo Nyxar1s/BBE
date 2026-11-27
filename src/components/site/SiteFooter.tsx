@@ -12,7 +12,7 @@ export function SiteFooter() {
           <div className="flex items-center gap-2.5">
             <Image src="/logo.png" alt="" width={36} height={36} className="rounded-lg" />
             <span className="text-[19px] font-extrabold tracking-tight text-fg">
-              BBE <span className="text-gold">Events</span>
+              BBE
             </span>
           </div>
           <p className="mt-3 max-w-[300px]">Helping couples and clients turn their event ideas into memorable celebrations.</p>

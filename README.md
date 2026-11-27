@@ -1,4 +1,4 @@
-# BBE Events: Next.js site
+# BBE (Bless Bridal Events): Next.js site
 
 **Stack:** Next.js 15 (App Router) + Tailwind CSS 4 · Supabase (Postgres, Auth, Storage) · Resend (email) · Cal.com or Calendly (scheduling)
 
@@ -27,7 +27,7 @@
 1. Create an account at <https://resend.com> and create an API key.
 2. Add and verify your domain under **Domains** (e.g. `bbeevents.com`).
    Until you do, Resend can only send to your own account email.
-3. Set `EMAIL_FROM` to an address on that domain, e.g. `BBE Events <bookings@bbeevents.com>`.
+3. Set `EMAIL_FROM` to an address on that domain, e.g. `BBE <bookings@bbeevents.com>`.
 
 When a client submits a booking, the owner gets an alert with an "Open in dashboard" button, and the client gets an acknowledgement. Each email's reply-to goes to the other person.
 
