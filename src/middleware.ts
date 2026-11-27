@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { SUPABASE_ANON_KEY, SUPABASE_URL } from "@/lib/env";
 
 const LOGIN = "/admin/login";
 
@@ -11,8 +12,8 @@ const LOGIN = "/admin/login";
  * The admin check itself lives in requireAdmin() (src/lib/auth.ts).
  */
 export async function middleware(request: NextRequest) {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const url = SUPABASE_URL;
+  const key = SUPABASE_ANON_KEY;
   const path = request.nextUrl.pathname;
   const isLogin = path === LOGIN;
 
