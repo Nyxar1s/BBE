@@ -5,10 +5,7 @@ import {
   Handshake,
   MessageCircleHeart,
   Search,
-  Store,
-  UserRoundCheck,
   Users,
-  Wallet,
   type LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
@@ -16,7 +13,7 @@ import { Gallery } from "@/components/site/Gallery";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteNav } from "@/components/site/SiteNav";
-import { HERO_IMAGE, HIGHLIGHTS, PROCESS_STEPS, SAMPLE_PHOTOS, SERVICES } from "@/lib/content";
+import { HERO_IMAGE, PROCESS_STEPS, SAMPLE_PHOTOS, SERVICES } from "@/lib/content";
 import { isSupabaseConfigured } from "@/lib/env";
 import { revealDelay } from "@/lib/reveal";
 import { bookingHref } from "@/lib/services";
@@ -37,12 +34,6 @@ async function getPublishedPhotos() {
   return data && data.length ? data : SAMPLE_PHOTOS;
 }
 
-const HIGHLIGHT_ICONS: Record<(typeof HIGHLIGHTS)[number]["icon"], LucideIcon> = {
-  planner: UserRoundCheck,
-  team: Users,
-  suppliers: Store,
-  budget: Wallet,
-};
 const STEP_ICONS: LucideIcon[] = [Search, MessageCircleHeart, Handshake, CalendarCheck];
 
 const darkBtn =
@@ -69,7 +60,7 @@ export default async function HomePage() {
       <main>
         {/* ---------------- HERO ---------------- */}
         <section id="home" className="relative">
-          <div className="relative isolate flex min-h-[500px] items-center justify-center overflow-hidden px-4 pt-16 pb-28 text-center sm:min-h-[580px]">
+          <div className="relative isolate flex min-h-[500px] items-center justify-center overflow-hidden px-4 py-20 text-center sm:min-h-[580px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={HERO_IMAGE} alt="" className="absolute inset-0 -z-20 h-full w-full object-cover" />
             <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 via-black/45 to-black/65" />
@@ -92,28 +83,10 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="relative z-10 mx-auto -mt-16 max-w-[1100px] px-4 sm:px-6">
-            <ul data-reveal className="grid grid-cols-2 gap-y-5 rounded-2xl border border-line bg-surface px-3 py-5 shadow-[0_12px_40px_rgba(20,18,13,.09)] lg:grid-cols-4">
-              {HIGHLIGHTS.map((h) => {
-                const Icon = HIGHLIGHT_ICONS[h.icon];
-                return (
-                  <li key={h.sub} className="flex items-center gap-3 px-3">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gold/12 text-gold ring-1 ring-gold/40">
-                      <Icon className="h-5 w-5" strokeWidth={1.7} />
-                    </span>
-                    <span className="min-w-0 leading-tight">
-                      <span className="block text-[14px] font-bold">{h.title}</span>
-                      <span className="block text-[12.5px] text-muted">{h.sub}</span>
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
         </section>
 
         {/* ---------------- 1. HOW IT WORKS ---------------- */}
-        <section id="process" className="mx-auto max-w-[1100px] px-4 pt-24 pb-20 sm:px-6">
+        <section id="process" className="mx-auto max-w-[1100px] px-4 py-20 sm:px-6">
           <SectionTitle eyebrow="The Process" title="How It Works" text="A simple way to start planning your event." />
           <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS_STEPS.map((s, i) => {

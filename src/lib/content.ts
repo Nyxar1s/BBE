@@ -6,13 +6,6 @@ export const PROCESS_STEPS = [
 ];
 
 /** Short highlights shown in the strip under the hero (taken from the service packages). */
-export const HIGHLIGHTS = [
-  { icon: "planner", title: "Dedicated", sub: "Lead Planner" },
-  { icon: "team", title: "5–7 On-Day", sub: "Assistants" },
-  { icon: "suppliers", title: "Curated", sub: "Suppliers" },
-  { icon: "budget", title: "Budget", sub: "Tracking" },
-] as const;
-
 const WEDDING_DAY = [
   "Head coordinator with 5–7 assistants",
   "Full support for bride, groom & entourage, from prep to reception",
